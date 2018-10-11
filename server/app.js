@@ -6,7 +6,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-mongoose.connect('mongodb://localhost:27017/lcw2',{ useNewUrlParser: true })  //--------------
+mongoose.connect('mongodb://localhost:27017/lcw2',{ useNewUrlParser: true })
 
 const app = express();
 

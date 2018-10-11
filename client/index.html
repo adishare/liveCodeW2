@@ -2,78 +2,106 @@
 <html lang="en">
 
 <head>
-    <title>H8</title>
 
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>3 Col Portfolio - Start Bootstrap Template</title>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <meta name="google-signin-client_id" content="736311652491-j77r9uqltc9nucbensuiet5avlpb6046.apps.googleusercontent.com">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 
 <body>
-    <div id="container">
-        
+  <div id="app">
+    <!-- Navigation -->
+    <div class="navbar bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">{{ title }}</a>
+        <div class="header-right" v-if="isLogin == false">
+          <input type="text" v-model="loginEmail" placeholder="email">
+          <input type="password" v-model="loginPassword" placeholder="password">
+          <button v-on:click="login">Login</button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3" v-if="isLogin">
+          <h4>Add new Event</h4>
+          <div class="list-group">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Event">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Location">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Address">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+          <hr>
+          <h4>Search</h4>
+          <div class="list-group">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search...">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+          <hr>
+          <h4>Maps</h4>
+        </div>
+        <!-- /.col-lg-3 -->
 
-        <header>
-            <div class="linkBar">
-                <div onclick="location.href='#article';">+ SHOP</div>
-                <div onclick="location.href='#footer';">+ ABOUT</div>
-                <div onclick="location.href='#main';">+ HELP</div>
-                <div onclick="signOut();">- SIGN OUT</div>
+        <div class="col-lg-9">
+
+          <div class="row">
+
+            <div v-for="(event, index) in events" :key="event._id"  class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-70">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#"> {{event.name}} </a>
+                  </h4>
+                  <div> {{event.address}} </div>
+                  <div> {{event.location}} </div>
+                </div>
+              </div>
             </div>
 
-            <div class="logoSect">H8 </div>
-            <div class="linkBar">
-                <div class="cartLink" href="#">+ CHART</div>
-                <div >+ USER</div>
-                <div class="registerLink" href="#">+ SIGN UP</div>
-                <div class="loginLink" href="#">+ SIGN IN</div>
-            </div>
-        </header>
 
-        <section>
+          </div>
 
-        </section>
+        </div>
 
-        <main id="main">
-            
-        </main>
-
-        <nav>
-           
-        </nav>
-
-
-        <article id="article">
-           
-        </article>
-
-        <aside>
-
-           
-
-        </aside>
-
-        <footer id="footer">
-
-
-        </footer>
-
-
+      </div>
 
     </div>
- 
+    <!-- /.container -->
 
-    <script src="js/scripts.js"></script>
-    <script src="js/vue.js"></script>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+  </div>
+  <script src="scripts.js"></script>
+
 </body>
 
 </html>
