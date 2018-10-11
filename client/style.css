@@ -1,0 +1,251 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy);
+@import url(https://fonts.googleapis.com/css?family=Acme);
+
+/* Smartphones (portrait) ———– */
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.376);
+    color: #525252;
+}
+
+/*  container ------------------- */
+#container {
+    background-image: linear-gradient(-60deg, #8d8d8d, #424242);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(60px, auto);
+    max-width: 100%;
+    margin: 0 auto;
+    grid-template-areas:
+        "header header header header"
+        "section section section section"
+        "nav nav nav nav"
+        "main main main main"
+        "article article article aside"
+        "footer footer footer footer";
+
+}
+
+#container>* {
+    /* background: #4B88A2; */
+}
+
+/* header---------------------------- */
+header {
+    z-index: 100;
+    background-image: linear-gradient(-60deg, #747474, #3d3d3d);
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    width: 100%;
+    margin: 0 auto;
+    height: 60px;
+    grid-gap: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 2px rgb(175, 210, 255);
+    box-shadow: 0 0 10px #525252;
+}
+
+header div {
+    align-self: center;
+}
+
+.logoSect {
+    padding: 5px;
+    font-size: 40px;
+}
+
+.linkBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(20px, auto);
+    font-size: 10px;
+}
+
+.linkBar div:hover {
+    margin-top: -6px;
+    transition: .3s;
+    text-shadow: 3px 3px 2px #FFF9FB;
+    cursor: pointer;
+}
+
+#search {
+    margin-bottom: 0px;
+    padding: 5px;
+    min-height: 10px;
+}
+
+/*  main conten post ---------------------*/
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.mainCard {
+    width: 100%;
+}
+
+
+
+section {
+    grid-area: section;
+}
+
+section img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.postCard {
+    border-left: 4px solid rgb(92, 92, 92);
+    background-color: rgb(255, 255, 255);
+    border-radius: 1px;
+    margin-bottom: 10px;
+    padding: 7px;
+    text-align: justify;
+    filter: drop-shadow(0 0 2px #bebebe);
+    width: 90%;
+}
+
+.postCard h1 {
+    font-size: 18px;
+}
+
+#cartContainer {
+    transition: .5s;
+}
+
+
+/* nav ---------------------------------- */
+nav {
+    grid-area: nav;
+    background-image: linear-gradient(-60deg, #464646, #4b4b4b);
+    padding: 20px;
+    box-shadow: 0 0 10px #bebebe;
+    color: #ffffff;
+}
+
+
+
+.categoriesContainer {
+    display: grid;
+}
+
+.categoriesContainer li{
+    list-style: none;
+}
+
+
+.button {
+    border: 2px solid#D3D4D9;
+    height: 30px;
+    display: block;
+    width: 120px;
+    margin: 0 auto;
+    padding-top: 10px;
+    border-radius: 30px;
+    transition: .3s;
+    font-size: 18px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(0, 104, 55);
+}
+
+textarea,
+input {
+    width: 90%;
+    min-height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    height: 150px;
+}
+
+
+article {
+    grid-area: article;
+    background-color: #eeeeee;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.productCard {
+    
+    width: 100%;
+}
+
+
+
+aside {
+    grid-area: aside;
+    background-color: #eeeeee;
+    padding-top: 17px;
+    text-align: justify;
+
+    display: grid;
+}
+
+
+
+/* footer ----------------------------- */
+footer {
+    grid-area: footer;
+    background-color: #777777;
+    box-shadow: 0 0 6px #525252;
+}
+
+
+/* dekstop responsive -------------------------- */
+@media screen and (min-width:1000px) {
+    #container {
+        grid-template-areas:
+            "header header header header"
+            "section section section section"
+            "main main main main"
+            "nav nav nav nav"
+            "article article article aside"
+            "footer footer footer footer";
+    }
+
+    .linkBar {
+        grid-gap: 20px;
+        justify-self: center;
+        font-size: 13px;
+    }
+
+    main {}
+
+    header {
+        grid-template-columns: 2fr 1fr 2fr;
+    }
+
+}
+
+
+/* modal */
+#modal {
+    max-height: 100px;
+    max-width: 200px;
+    min-height: 50px;
+    min-width: 100px;
+    border: 2px solidrgb(154, 160, 185);
+}
